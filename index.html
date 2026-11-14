@@ -733,6 +733,190 @@
     }
 
     /* Contact */
+    :root {
+      --white:#ffffff;
+      --radius-lg: 28px;
+      --shadow: 0 18px 55px rgba(42, 23, 16, .08);
+    }
+    .sosial-grid {
+      --maroon: #7b2d2d;
+      --sand: #fae5c3;
+      --sand-line: #efd5a5;
+      --sand-ink: #4a2f1d;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .sosial-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 30px;
+      border: 1px solid rgba(196, 179, 162, .45);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .sosial-icon {
+      flex: 0 0 auto;
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--maroon);
+      color: var(--white);
+    }
+    .sosial-icon svg { width: 26px; height: 26px; }
+    .sosial-body {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .sosial-body h3 {
+      margin: 0;
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .phone-number {
+      color: var(--black);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      border-bottom: 2px solid rgba(123, 45, 45, .28);
+      padding-bottom: 2px;
+    }
+    .pill-stack {
+      display: grid;
+      grid-template-columns: max-content;
+      gap: 16px;
+      max-width: 100%;
+    }
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: fit-content;
+      max-width: 100%;
+      padding: 12px 30px 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .pill-stack .pill { width: auto; }
+    .pill:hover { transform: translateY(-2px); }
+    .pill:focus-visible { outline: 3px solid var(--maroon); outline-offset: 3px; }
+    .pill svg { flex: 0 0 auto; width: 28px; height: 28px; }
+    .pill small { display: block; font-size: 13px; line-height: 1.25; }
+    .pill strong { display: block; font-size: 19px; font-weight: 600; line-height: 1.25; }
+    .pill-label { font-size: 18px; font-weight: 600; line-height: 1.25; }
+    .pill-instagram {
+      color: var(--white);
+      background: linear-gradient(100deg, #f9b233 0%, #f5604f 28%, #ee2a7b 58%, #7b2fd0 100%);
+      box-shadow: 0 10px 24px rgba(238, 42, 123, .28);
+    }
+    .pill-instagram:hover { box-shadow: 0 14px 28px rgba(238, 42, 123, .36); }
+    .pill-instagram small { color: rgba(255, 255, 255, .78); }
+    .pill-sand {
+      color: var(--sand-ink);
+      background: var(--sand);
+      border-color: var(--sand-line);
+    }
+    .pill-sand small { color: #7a6045; }
+    .pill-sand:hover { box-shadow: 0 10px 22px rgba(74, 47, 29, .14); }
+   
+    /* Tampilan HP */
+    @media (max-width: 760px) {
+      .social-grid { grid-template-columns: 1fr; gap: 20px; }
+      .social-card { gap: 16px; padding: 24px 20px; }
+      .social-icon { width: 50px; height: 50px; }
+      .social-icon svg { width: 22px; height: 22px; }
+      .social-body { flex: 1; }
+      .pill-stack { grid-template-columns: 1fr; width: 100%; }
+      .pill { width: 100%; padding-right: 22px; }
+      .pill strong { font-size: 17px; }
+    }
+
+    /* Lokasi */
+    .map-card {
+      --maroon: #7b2d2d;
+      --sand: #fae5c3;
+      --sand-line: #efd5a5;
+      --sand-ink: #4a2f1d;
+      margin-top: 32px;
+    }
+    .map-card .social-body {
+      flex: 1;
+      width: 100%;
+    }
+    .map-address {
+      margin: 0;
+      max-width: 560px;
+      color: #5a4332;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .map-frame {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      border: 1px solid rgba(196, 179, 162, .6);
+      border-radius: 18px;
+      background: #f4ebdd;
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+    .social-card.map-card {
+      flex-direction: column;   /* ikon di atas, peta di bawahnya */
+      align-items: stretch;
+      gap: 14px;
+      padding: 22px 18px;
+    }
+    .social-card.map-card .social-icon {
+      width: 48px;
+      height: 48px;
+    }
+    .social-card.map-card .social-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .social-card.map-card .social-body {
+      width: 100%;
+      gap: 14px;
+    }
+    .map-address {
+      max-width: 100%;
+      font-size: 14px;
+    }
+    .map-frame {
+      height: 260px;
+      border-radius: 14px;
+    }
+    .social-card.map-card .pill {
+      width: 100%;             /* tombol selebar kartu agar mudah ditekan */
+      justify-content: center;
+      padding: 12px 20px;
+    }
+    }
+
+    /* HP berlayar kecil */
+    @media (max-width: 420px) {
+    .map-frame { height: 220px; }
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1.08fr .92fr;
@@ -913,8 +1097,8 @@
     .nav-links a { padding-top: 25px; padding-bottom: 23px; }
     .nav-links a::after { bottom: 15px; }
     .section { padding-top: 86px; padding-bottom: 86px; }
-    h1 { font-size: clamp(38px, 5.2vw, 64px); }
-    h2 { font-size: clamp(34px, 4.5vw, 56px); }
+    .h1 { font-size: clamp(38px, 5.2vw, 64px); }
+    .h2 { font-size: clamp(34px, 4.5vw, 56px); }
     .lead { font-size: 14px; }
     .section-heading { margin-bottom: 38px; }
     .hero { min-height: calc(100vh - 68px); padding-top: 48px; padding-bottom: 58px; }
@@ -1062,7 +1246,7 @@
       .person-card h3 { font-size: 13px; }
       .team-closing { display: block; }
       .team-closing strong { display: block; margin-top: 20px; }
-      footer { padding: 28px 20px; }
+      .footer { padding: 28px 20px; }
       .footer-inner { display: block; line-height: 2; }
       .footer-inner span:last-child { display: block; }
     }
@@ -1074,13 +1258,240 @@
       .experience-step { grid-template-columns: 46px 1fr; }
       .step-number { width: 46px; height: 46px; }
     }
+
+    /* Efek warna saat ikon dihover / ditekan */
+    .pill-fx {
+      position: relative;
+      isolation: isolate;
+      transition: color .3s ease, transform .2s ease, box-shadow .3s ease;
+    }
+    .pill-fx::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity .3s ease;   /* warna muncul perlahan */
+    }
+
+    /* Saat disentuh / dihover / ditekan */
+    .pill-fx:hover,
+    .pill-fx:focus-visible,
+    .pill-fx:active { color: #fff; }
+
+    .pill-fx:hover small,
+    .pill-fx:focus-visible small,
+    .pill-fx:active small { color: rgba(255, 255, 255, .8); }
+
+    .pill-fx:hover::before,
+    .pill-fx:focus-visible::before,
+    .pill-fx:active::before { opacity: 1; }
+
+    .pill-fx:active { transform: translateY(0) scale(.98); }  /* efek tertekan */
+
+    /* Warna tiap tombol */
+    .fx-instagram::before { background: linear-gradient(100deg, #f9b233 0%, #f5604f 28%, #ee2a7b 58%, #7b2fd0 100%); }
+    .fx-tiktok::before    { background: #000000; }
+    .fx-whatsapp::before  { background: #25d366; }
+    .fx-email::before     { background: linear-gradient(100deg, #4285F4 33%, #7b2d2d 28%, #EA4335 58%, #FBBC04 0%, #34A853 100%); }
+    .fx-maps::before      { background: linear-gradient(100deg, #FBBC04 15%, #EA4335 28%, #4285F4 50%, #1967d2 50%, #34A853 100%); }
+
+    /* Bayangan saat hover */
+    .fx-instagram:hover { box-shadow: 0 12px 26px rgba(238, 42, 123, .35); }
+    .fx-tiktok:hover    { box-shadow: 0 12px 26px rgba(0, 0, 0, .35); }
+    .fx-whatsapp:hover  { box-shadow: 0 12px 26px rgba(37, 211, 102, .40); }
+    .fx-email:hover     { box-shadow: 0 12px 26px rgba(26, 115, 232, .35); }
+    .fx-maps:hover      { box-shadow: 0 12px 26px rgba(26, 115, 232, .35); }
+    .cp{--ink:#2a1810;--gold:#9c6137;--maroon:#7b2d2d;--sand:#fae5c3;--muted:#7a6350;--line:rgba(42,24,16,.12);--ok:#3f8a5b;
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.55fr);gap:40px;max-width:1140px;margin:0 auto;padding:40px 24px;
+  color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+  .xmap{--bg:#2a1810;--tan:#d3b68b;--brown:#9c6137;--soft:#c4b3a2;
+  padding:32px 32px 28px;border-radius:40px;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+.xmap *{box-sizing:border-box}
+.xmap-label{margin:0 0 26px;color:var(--tan);font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.xmap-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.xmap-step{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:0;border:0;background:none;
+  color:inherit;font:inherit;text-align:left;cursor:pointer;opacity:.6;transition:opacity .3s}
+.xmap-step:hover,.xmap-step.on{opacity:1}
+.xmap-step:focus-visible{outline:2px solid var(--tan);outline-offset:6px;border-radius:12px}
+.xmap-num{width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:var(--brown);
+  color:var(--bg);font-size:16px;font-weight:700;transition:transform .3s,box-shadow .3s}
+.xmap-step.on .xmap-num{transform:scale(1.1);box-shadow:0 0 0 6px rgba(156,97,55,.28),0 0 26px rgba(201,138,82,.55)}
+.xmap-step strong{display:block;font-size:17px;letter-spacing:.02em;text-transform:uppercase}
+.xmap-line{display:block;height:2px;margin:6px 0 7px;background:rgba(156,97,55,.35);position:relative}
+.xmap-line::after{content:"";position:absolute;inset:0;width:0;background:#d99a62}
+.xmap-step.on .xmap-line::after{animation:xfill 5s linear forwards}
+.xmap-step small{display:block;color:var(--soft);font-size:15px}
+.xmap-stage{margin-top:28px;border-radius:24px;overflow:hidden;background:#efe2cc}
+.xmap-stage svg{display:block;width:100%;height:auto}
+ 
+/* scene: hanya scene aktif yang tampil */
+.xs{opacity:0;visibility:hidden;transition:opacity .5s}
+.xs.on{opacity:1;visibility:visible}
+.xs.on .walk{animation:walk 2.8s ease-out both}
+.xs.on .bob{animation:bob .4s ease-in-out 7}
+.xs.on .door{animation:open .8s 2.6s ease-in-out both}
+.xs.on .glow{animation:fadein .8s 2.6s both}
+.xs.on .pop{animation:pop .5s var(--d,0s) both cubic-bezier(.3,1.5,.5,1)}
+.xs.on .wave{animation:wave 1s ease-in-out infinite}
+.xs.on .slide{animation:slide 1.2s 1.8s ease-out both}
+.xs.on .swing{animation:swing 3s ease-in-out infinite}
+.xs.on .steam{animation:steam 2s var(--d,0s) ease-out infinite}
+.xs.on .tw{animation:tw 1.6s var(--d,0s) ease-in-out infinite}
+.xs.on .breathe{animation:breathe 2.4s var(--d,0s) ease-in-out infinite}
+.xs.on .say{animation:say 4.5s var(--d,0s) infinite}
+.xs.on .float{animation:float 3s var(--d,0s) ease-out infinite}
+.xs.on .sway{animation:sway 4s ease-in-out infinite}
+@keyframes xfill{to{width:100%}}
+@keyframes walk{to{transform:translateX(400px)}}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes open{to{transform:scaleX(.12)}}
+@keyframes fadein{from{opacity:0}to{opacity:.35}}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+@keyframes wave{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(45deg)}}
+@keyframes slide{to{transform:translateX(170px)}}
+@keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.85}100%{opacity:0;transform:translateY(-18px)}}
+@keyframes tw{50%{opacity:.25}}
+@keyframes breathe{50%{transform:scaleY(1.03)}}
+@keyframes say{0%,6%{transform:scale(0)}14%,68%{transform:scale(1)}78%,100%{transform:scale(0)}}
+@keyframes float{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-60px)}}
+@keyframes sway{50%{transform:rotate(3deg)}}
+ 
+@media(max-width:860px){
+  .xmap{padding:24px 20px;border-radius:28px}
+  .xmap-steps{grid-template-columns:1fr 1fr;row-gap:22px}
+  .xmap-step{grid-template-columns:52px 1fr}
+  .xmap-num{width:52px;height:52px}
+}
+@media(max-width:480px){
+  .xmap-step{grid-template-columns:1fr;gap:10px;justify-items:start}
+  .xmap-step strong{font-size:15px}
+  .xmap-step small{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.xmap *{animation:none!important;transition:none!important}}
+.cp *{box-sizing:border-box}
+.cp button{font-family:inherit}
+.cp-h{margin:0 0 22px;font-family:Georgia,serif;font-size:clamp(30px,4vw,44px);line-height:1.1}
+.cp-steps{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cp-s{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center;width:100%;padding:12px;border:0;border-radius:20px;
+  background:none;color:inherit;text-align:left;cursor:pointer;transition:background .25s,box-shadow .25s}
+.cp-s:hover{background:rgba(255,255,255,.6)}
+.cp-s.on{background:#fff;box-shadow:0 10px 30px rgba(42,24,16,.1)}
+.cp-n{width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:var(--gold);color:#fff;font-weight:700;font-size:16px;transition:.3s}
+.cp-s.on .cp-n{transform:scale(1.08);box-shadow:0 0 0 6px rgba(156,97,55,.22)}
+.cp-s.done .cp-n{background:var(--ok);font-size:0}
+.cp-s.done .cp-n::before{content:"✓";font-size:22px;line-height:1}
+.cp-s b{display:block;font-size:19px;margin-bottom:5px}
+.cp-s small{color:var(--muted);font-size:15px;line-height:1.4}
+.cp-rule{display:block;width:min(330px,100%);height:2px;margin:26px 0 0 12px;background:var(--gold)}
+ 
+/* kartu */
+.cp-card{display:flex;flex-direction:column;min-height:600px;overflow:hidden;border:1px solid rgba(196,179,162,.5);border-radius:30px;
+  background:#fff;box-shadow:0 22px 60px rgba(42,24,16,.12)}
+.cp-bar{height:5px;background:#f1e6d3}
+.cp-fill{height:100%;width:25%;background:linear-gradient(90deg,var(--gold),#d99a62);transition:width .6s cubic-bezier(.4,0,.2,1)}
+.cp-panel{flex:1;min-height:0;padding:26px 26px 18px;overflow:hidden}
+.cp-panel.in{animation:cpIn .4s ease}
+.cp-t{margin:0 0 4px;font-family:Georgia,serif;font-size:25px}
+.cp-p{margin:0 0 16px;color:var(--muted);font-size:14px}
+.cp-foot{display:flex;align-items:center;gap:12px;padding:14px 26px;border-top:1px solid var(--line);background:#fffaf3}
+.cp-sum{flex:1;font-size:14px;color:var(--muted)}.cp-sum b{display:block;color:var(--ink);font-size:17px}
+.cp-btn{padding:13px 22px;border:0;border-radius:999px;background:var(--maroon);color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:.2s}
+.cp-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(123,45,45,.3)}
+.cp-btn.ghost{background:var(--sand);color:var(--ink);border:1px solid #efd5a5}
+.cp-btn[hidden]{display:none}
+.cp-err{margin:0 0 12px;padding:10px 14px;border-radius:12px;background:#fde8e6;color:#a32b22;font-size:14px}
+ 
+/* 1. pilih menu */
+.cp-chips{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
+.cp-chips::-webkit-scrollbar{display:none}
+.cp-chip{flex:0 0 auto;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.cp-chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.cp-list{max-height:340px;overflow-y:auto;margin:0 -8px;padding:0 8px;scrollbar-width:thin}
+.cp-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.cp-th{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;background:#efe0c8;font-size:28px;overflow:hidden}
+.cp-th img{width:100%;height:100%;object-fit:cover}
+.cp-nm{margin:0 0 3px;font-size:14px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.cp-ds{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
+.cp-rec{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:4px;background:#d9bd94;font-size:10px;letter-spacing:0;vertical-align:middle}
+.cp-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.cp-pr{font-size:15px;font-weight:700;white-space:nowrap}
+.cp-add{padding:8px 14px;border:1.5px solid var(--gold);border-radius:999px;background:#fff;color:var(--gold);font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.cp-add:hover{background:var(--gold);color:#fff}
+.cp-q{display:inline-flex;align-items:center;border-radius:999px;background:var(--gold);color:#fff}
+.cp-q button{width:30px;height:30px;border:0;background:none;color:#fff;font-size:17px;font-weight:700;cursor:pointer}
+.cp-q span{min-width:22px;text-align:center;font-size:14px;font-weight:700}
+ 
+/* 2. konfirmasi */
+.cp-conf{max-height:420px;overflow-y:auto;margin:0 -8px;padding:0 8px;scrollbar-width:thin}
+.cp-sec{margin:14px 0 8px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.cp-it{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.cp-it .n{flex:1;font-weight:700}.cp-it .s{min-width:84px;text-align:right;font-weight:700}
+.cp-q.sm button{width:26px;height:26px}
+.cp-more{margin-top:10px;padding:0;border:0;background:none;color:var(--gold);font-size:14px;font-weight:700;cursor:pointer}
+.cp-tot{margin-top:12px;padding:14px;border-radius:16px;background:#fffaf3;font-size:14px}
+.cp-tot div{display:flex;justify-content:space-between;padding:3px 0}
+.cp-tot .g{margin-top:6px;padding-top:9px;border-top:1px solid var(--line);font-size:17px;font-weight:700}
+.cp-fm{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cp-fm label{display:block;font-size:12px;font-weight:700;color:var(--muted)}
+.cp-fm .w{grid-column:1/-1}
+.cp-fm input,.cp-fm textarea{width:100%;margin-top:5px;padding:11px 13px;border:1.5px solid #e3d6c4;border-radius:12px;font:inherit;font-size:14px;color:var(--ink);background:#fff;resize:vertical}
+.cp-fm input:focus,.cp-fm textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(156,97,55,.18)}
+ 
+/* 3. proses */
+.cp-proc{text-align:center}
+.cp-proc svg{width:150px;height:auto;margin:6px auto 4px;display:block}
+.cp-stages{list-style:none;margin:18px auto 0;padding:0;max-width:340px;text-align:left}
+.cp-stages li{position:relative;display:flex;align-items:center;gap:14px;padding:9px 0;color:#b9a590;font-size:15px;transition:color .4s}
+.cp-stages li::before{content:"";flex:0 0 22px;height:22px;border-radius:50%;border:2px solid #dccdb8;background:#fff;transition:.4s}
+.cp-stages li.on{color:var(--ink);font-weight:700}
+.cp-stages li.on::before{border-color:var(--gold);border-top-color:transparent;animation:cpSpin .8s linear infinite}
+.cp-stages li.done{color:var(--ink)}
+.cp-stages li.done::before{content:"✓";display:grid;place-items:center;border-color:var(--ok);background:var(--ok);color:#fff;font-size:13px;animation:none}
+.cp-eta{display:inline-block;margin-top:14px;padding:8px 16px;border-radius:999px;background:var(--sand);font-size:13px;font-weight:700}
+ 
+/* 4. selesai */
+.cp-del svg{display:block;width:100%;height:auto;border-radius:18px}
+.cp-stat{margin:14px 0 2px;text-align:center;font-family:Georgia,serif;font-size:22px}
+.cp-stat-s{margin:0 0 14px;text-align:center;color:var(--muted);font-size:14px}
+.cp-ord{padding:14px 16px;border-radius:16px;background:#fffaf3;font-size:14px;line-height:1.7}
+.cp-ord b{display:inline-block;min-width:100px;color:var(--gold)}
+.cp-sc{animation:cpRide 5s cubic-bezier(.45,.05,.3,1) forwards}
+.cp-w{transform-box:fill-box;transform-origin:center;animation:cpSpin .5s linear infinite}
+.cp-road{animation:cpRoad .6s linear infinite}
+.cp-dr{transform-box:fill-box;transform-origin:left;transition:transform .7s}
+.cp-bd{transform:scale(0);transform-box:fill-box;transform-origin:center;transition:transform .5s cubic-bezier(.3,1.6,.5,1) .3s}
+.cp-del.arrived .cp-w,.cp-del.arrived .cp-road{animation-play-state:paused}
+.cp-del.arrived .cp-dr{transform:scaleX(.15)}
+.cp-del.arrived .cp-bd{transform:scale(1)}
+.cp-sm{animation:cpSteam 2s ease-out infinite}
+.cp-liq{animation:cpFill 5s ease-in-out infinite}
+ 
+@keyframes cpIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes cpSpin{to{transform:rotate(360deg)}}
+@keyframes cpRide{to{transform:translateX(330px)}}
+@keyframes cpRoad{to{stroke-dashoffset:-24}}
+@keyframes cpSteam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-16px)}}
+@keyframes cpFill{0%{transform:translateY(70px)}80%,100%{transform:translateY(6px)}}
+ 
+@media(max-width:900px){
+  .cp{grid-template-columns:1fr;gap:24px;padding:28px 16px}
+  .cp-steps{grid-template-columns:repeat(4,1fr);gap:4px}
+  .cp-s{grid-template-columns:1fr;justify-items:center;gap:8px;padding:10px 4px;text-align:center}
+  .cp-n{width:46px;height:46px;font-size:14px}.cp-s b{font-size:13px;margin:0}.cp-s small,.cp-rule{display:none}
+  .cp-panel{padding:20px 16px 14px}.cp-foot{padding:12px 16px}
+  .cp-fm{grid-template-columns:1fr}.cp-row{grid-template-columns:48px 1fr auto;gap:10px}.cp-th{width:48px;height:48px;font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){.cp *{animation:none!important;transition:none!important}.cp-sc{transform:translateX(330px)}}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="nav-shell">
       <a class="brand" href="#home" aria-label="De Tjap Java, kembali ke home">
-        <span class="brand-seal">DJ</span>
+        <span class="brand-seal">DTJ</span>
         <span>DE TJAP JAVA</span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
@@ -1093,6 +1504,7 @@
         <a href="#fitur">FITUR</a>
         <a href="#testimoni">TESTIMONI</a>
         <a href="#kontak">KONTAK</a>
+        <a href="#Team">TEAM</a>
       </nav>
     </div>
   </header>
@@ -1368,17 +1780,98 @@
             </ul>
           </article>
         </div>
-        <div class="features-experience">
-          <div class="experience-label">Experience map</div>
-          <div class="experience-map">
-            <div class="experience-step"><div class="step-number">01</div><div><strong>Datang</strong><small>nuansa klasik</small></div></div>
-            <div class="experience-step"><div class="step-number">02</div><div><strong>Pesan</strong><small>signature menu</small></div></div>
-            <div class="experience-step"><div class="step-number">03</div><div><strong>Bersantai</strong><small>gezellig moment</small></div></div>
-            <div class="experience-step"><div class="step-number">04</div><div><strong>Bercerita</strong><small>budaya &amp; relasi</small></div></div>
           </div>
         </div>
       </div>
     </section>
+    <section class="xmap" id="xmap" aria-label="Experience map">
+  <p class="xmap-label">Experience Map</p>
+ 
+  <div class="xmap-steps">
+    <button class="xmap-step on" type="button"><span class="xmap-num">01</span><span><strong>Datang</strong><i class="xmap-line"></i><small>nuansa klasik</small></span></button>
+    <button class="xmap-step" type="button"><span class="xmap-num">02</span><span><strong>Pesan</strong><i class="xmap-line"></i><small>signature menu</small></span></button>
+    <button class="xmap-step" type="button"><span class="xmap-num">03</span><span><strong>Bersantai</strong><i class="xmap-line"></i><small>gezellig moment</small></span></button>
+    <button class="xmap-step" type="button"><span class="xmap-num">04</span><span><strong>Bercerita</strong><i class="xmap-line"></i><small>budaya &amp; relasi</small></span></button>
+  </div>
+ 
+  <div class="xmap-stage">
+    <svg viewBox="0 0 800 300" role="img" aria-label="Ilustrasi pengalaman pelanggan">
+      <defs>
+        <symbol id="xp" viewBox="-30 -80 60 80" overflow="visible">
+          <rect x="-20" y="-46" width="40" height="46" rx="14" fill="var(--shirt,#7b2d2d)"/>
+          <circle cy="-60" r="16" fill="var(--skin,#e8b88a)"/>
+          <path d="M-17-62a17 17 0 0 1 34 0z" fill="var(--hair,#2a1810)"/>
+          <circle cx="-5" cy="-58" r="1.8" fill="#2a1810"/><circle cx="6" cy="-58" r="1.8" fill="#2a1810"/>
+          <path d="M-5-52q5 4 10 0" stroke="#2a1810" fill="none" stroke-width="1.6" stroke-linecap="round"/>
+        </symbol>
+        <g id="xcup"><rect x="-13" y="-22" width="26" height="22" rx="5" fill="#fff"/><path d="M13-17h5a5 5 0 0 1 0 12h-5" stroke="#fff" stroke-width="3" fill="none"/><rect x="-13" y="-22" width="26" height="6" fill="#6b3f24"/></g>
+        <g id="xsteam" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".9"><path d="M-6-28q-5-6 0-12"/><path d="M5-28q-5-6 0-12"/></g>
+      </defs>
+ 
+      <rect width="800" height="300" fill="#efe2cc"/>
+      <rect y="238" width="800" height="62" fill="#c9a77c"/>
+ 
+      <!-- ============ 1. DATANG ============ -->
+      <g class="xs on">
+        <rect x="520" y="40" width="200" height="40" fill="#7b2d2d"/>
+        <g fill="#efe2cc"><rect x="560" y="40" width="40" height="40"/><rect x="640" y="40" width="40" height="40"/></g>
+        <rect x="560" y="90" width="110" height="148" fill="#5a3a22"/>
+        <rect x="568" y="98" width="94" height="140" fill="#ffd58a"/>
+        <circle class="glow" cx="615" cy="170" r="90" fill="#ffd58a" opacity=".35"/>
+        <g transform="translate(568 98)"><rect class="door" width="94" height="140" fill="#9c6137"/></g>
+        <rect x="330" y="48" width="170" height="34" rx="8" fill="#2a1810"/>
+        <text x="415" y="70" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#d3b68b" letter-spacing="1.5">SELAMAT DATANG</text>
+        <rect x="80" y="70" width="150" height="100" rx="6" fill="#d8c3a0"/>
+        <path d="M155 70v100M80 120h150" stroke="#efe2cc" stroke-width="5"/>
+        <g transform="translate(100 236)"><g class="walk"><g class="bob"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#2f6f5e"/></g></g></g>
+      </g>
+ 
+      <!-- ============ 2. PESAN ============ -->
+      <g class="xs">
+        <rect x="90" y="36" width="200" height="104" rx="8" fill="#2a1810"/>
+        <text x="190" y="62" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#d3b68b" letter-spacing="2">SIGNATURE</text>
+        <g fill="#9c6137"><rect x="110" y="76" width="120" height="6" rx="3"/><rect x="110" y="92" width="150" height="6" rx="3"/><rect x="110" y="108" width="100" height="6" rx="3"/></g>
+        <g transform="translate(300 175)"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#f1e6d3"/>
+          <g transform="translate(20 -40)"><rect class="wave" x="0" y="-30" width="9" height="30" rx="4.5" fill="#f1e6d3"/></g></g>
+        <rect y="172" width="800" height="70" fill="#7a4a2e"/><rect y="166" width="800" height="10" fill="#9c6137"/>
+        <g transform="translate(590 240)"><g class="pop" style="--d:.3s"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#2f6f5e"/></g></g>
+        <g transform="translate(590 120)"><g class="pop" style="--d:1s"><rect x="-34" y="-46" width="68" height="46" rx="14" fill="#fff"/><path d="M-6 0h12l-6 14z" fill="#fff"/>
+          <g transform="translate(0 -12)"><use href="#xcup"/></g></g></g>
+        <g transform="translate(330 166)"><g class="slide"><use href="#xcup"/><g class="steam" style="--d:2.6s"><use href="#xsteam"/></g></g></g>
+      </g>
+ 
+      <!-- ============ 3. BERSANTAI ============ -->
+      <g class="xs">
+        <rect x="80" y="50" width="130" height="110" rx="8" fill="#1d2b3a"/>
+        <circle cx="170" cy="86" r="14" fill="#f6e7b4"/>
+        <circle class="tw" cx="110" cy="80" r="2.5" fill="#fff"/><circle class="tw" style="--d:.7s" cx="130" cy="120" r="2" fill="#fff"/>
+        <g transform="translate(300 0)"><g class="swing"><path d="M0 0v70" stroke="#5a3a22" stroke-width="3"/><path d="M-26 100q0-30 26-30t26 30z" fill="#9c6137"/><circle cy="104" r="30" fill="#ffd58a" opacity=".35"/></g></g>
+        <g transform="translate(500 0)"><g class="swing" style="animation-delay:-1.5s"><path d="M0 0v70" stroke="#5a3a22" stroke-width="3"/><path d="M-26 100q0-30 26-30t26 30z" fill="#9c6137"/><circle cy="104" r="30" fill="#ffd58a" opacity=".35"/></g></g>
+        <g transform="translate(300 236)"><g class="breathe"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#7b2d2d"/></g></g>
+        <g transform="translate(500 236)"><g class="breathe" style="--d:.8s"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#2f6f5e;--hair:#5a3a22"/></g></g>
+        <rect x="320" y="198" width="160" height="10" rx="5" fill="#7a4a2e"/><path d="M400 208v30" stroke="#5a3a22" stroke-width="8"/>
+        <g transform="translate(360 198)"><use href="#xcup"/><g class="steam"><use href="#xsteam"/></g></g>
+        <g transform="translate(440 198)"><use href="#xcup"/><g class="steam" style="--d:1s"><use href="#xsteam"/></g></g>
+        <g transform="translate(700 238)"><g class="sway"><rect x="-16" y="-30" width="32" height="30" rx="4" fill="#9c6137"/>
+          <path d="M0-30c-30-20-28-60-8-70 6 24 8 44 8 70zM0-30c28-14 34-50 14-66-10 22-14 40-14 66z" fill="#4f8a5b"/></g></g>
+      </g>
+ 
+      <!-- ============ 4. BERCERITA ============ -->
+      <g class="xs">
+        <path d="M30 30q185 50 370 0t370 0" stroke="#5a3a22" stroke-width="2" fill="none"/>
+        <g fill="#ffd58a"><circle class="tw" cx="125" cy="54" r="6"/><circle class="tw" style="--d:.4s" cx="260" cy="64" r="6"/><circle class="tw" style="--d:.8s" cx="400" cy="55" r="6"/><circle class="tw" style="--d:1.2s" cx="540" cy="64" r="6"/><circle class="tw" style="--d:.2s" cx="675" cy="54" r="6"/></g>
+        <g transform="translate(240 232)"><g class="breathe"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#7b2d2d"/></g></g>
+        <g transform="translate(400 226)"><g class="breathe" style="--d:.5s"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#d99a62;--hair:#5a3a22"/></g></g>
+        <g transform="translate(560 232)"><g class="breathe" style="--d:1s"><use href="#xp" x="-30" y="-80" width="60" height="80" style="--shirt:#2f6f5e"/></g></g>
+        <ellipse cx="400" cy="218" rx="190" ry="16" fill="#7a4a2e"/><rect x="392" y="230" width="16" height="10" fill="#5a3a22"/>
+        <g transform="translate(240 124)"><g class="say" style="--d:0s"><rect x="-32" y="-40" width="64" height="40" rx="14" fill="#fff"/><path d="M-6 0h12l-6 12z" fill="#fff"/><g fill="#9c6137"><circle cx="-14" cy="-20" r="4"/><circle cy="-20" r="4"/><circle cx="14" cy="-20" r="4"/></g></g></g>
+        <g transform="translate(400 112)"><g class="say" style="--d:1.5s"><rect x="-32" y="-40" width="64" height="40" rx="14" fill="#fff"/><path d="M-6 0h12l-6 12z" fill="#fff"/><path d="M0-12c-14-8-14-22-4-22 3 0 4 2 4 3 0-1 1-3 4-3 10 0 10 14-4 22z" fill="#7b2d2d"/></g></g>
+        <g transform="translate(560 124)"><g class="say" style="--d:3s"><rect x="-32" y="-40" width="64" height="40" rx="14" fill="#fff"/><path d="M-6 0h12l-6 12z" fill="#fff"/><g fill="#9c6137"><circle cx="-14" cy="-20" r="4"/><circle cy="-20" r="4"/><circle cx="14" cy="-20" r="4"/></g></g></g>
+        <g fill="#7b2d2d"><path class="float" d="M330 100c-6-4-6-10-2-10 2 0 2 1 2 2 0-1 0-2 2-2 4 0 4 6-2 10z"/><path class="float" style="--d:1.2s" d="M480 96c-6-4-6-10-2-10 2 0 2 1 2 2 0-1 0-2 2-2 4 0 4 6-2 10z"/><path class="float" style="--d:2.2s" d="M640 106c-6-4-6-10-2-10 2 0 2 1 2 2 0-1 0-2 2-2 4 0 4 6-2 10z"/></g>
+      </g>
+    </svg>
+  </div>
+</section>
 
     <section id="testimoni" class="section">
       <div class="section-heading">
@@ -1438,31 +1931,91 @@
         </div>
         <span class="section-index"></span>
       </div>
-      <div class="contact-grid">
-        <article class="contact-card dark">
-          <h3>De Tjap Java</h3>
-          <dl class="contact-list">
-            <div class="contact-row"><dt>Alamat</dt><dd>RT.01/RW.01, Bandut, Pelemwatu, Kec. Menganti, Kab. Gresik, Jawa Timur 61174</dd></div>
-            <div class="contact-row"><dt>WhatsApp</dt><dd><a href="https://wa.me/6285956063141" target="_blank" rel="noopener">085956063141</a></dd></div>
-            <div class="contact-row"><dt>Email</dt><dd><a href="mailto:detjapjava@gmail.com">detjapjava@gmail.com</a></dd></div>
-            <div class="contact-row"><dt>TikTok</dt><dd><a href="https://www.tiktok.com/@de.tjap.java" target="_blank" rel="noopener">tiktok.com/@de.tjap.java</a></dd></div>
-            <div class="contact-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/detjapjava" target="_blank" rel="noopener">instagram.com/detjapjava</a></dd></div>
-          </dl>
-        </article>
-        <article class="contact-card beige">
-          <h3>Cara pembelian</h3>
-          <div class="order-list">
-            <div class="order-step"><div class="order-number">01</div><div><strong>Pilih menu</strong><span>Pilih produk yang ingin dipesan.</span></div></div>
-            <div class="order-step"><div class="order-number">02</div><div><strong>Hubungi kami</strong><span>Pesan melalui WhatsApp.</span></div></div>
-            <div class="order-step"><div class="order-number">03</div><div><strong>Konfirmasi</strong><span>Tentukan jumlah, dan detail pesanan.</span></div></div>
-            <div class="order-step"><div class="order-number">04</div><div><strong>Selesai</strong><span>Pesanan di antar dan tiba di alamat tujuan.</span></div></div>
+      <div class="sosial-grid">
+        <article class="sosial-card">
+          <div class="sosial-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
           </div>
-          <a class="order-link" href="https://wa.me/6288983518275?text=Halo%20De%20Tjap%20Java%2C%20saya%20ingin%20memesan." target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          <div class="social-body">
+            <h3>Media Sosial</h3>
+            <div class="pill-stack">
+              <a class="pill pill-sand pill-fx fx-instagram" href="https://www.instagram.com/detjapjava" target="_blank" rel="noopener" aria-label="Instagram De Tjap Java">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span><small>Instagram</small><strong>detjapjava</strong></span>
+              </a>
+              <a class="pill pill-sand pill-fx fx-tiktok" href="https://www.tiktok.com/@de.tjap.java" target="_blank" rel="noopener" aria-label="TikTok De Tjap Java">
+                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                 <span><small>TikTok</small><strong>de.tjap.java</strong></span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="sosial-card">
+          <div class="sosial-icon" aria-hidden="true">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="sosial-body">
+            <h3>WhatsApp</h3>
+            <a class="phone-number" href="tel:+6285956063141">085956063141</a>
+            <a class="pill pill-sand pill-fx fx-whatsapp" href="https://wa.me/6285956063141?text=Halo%20De%20Tjap%20Java%2C%20saya%20ingin%20memesan." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><g transform="translate(7.2 7.2) scale(.4)"><path stroke-width="4.2" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg>
+            <span class="pilih-label">Chat WhatsApp</span>
+            </a>
+          </div>
+        </article>
+        <article class="sosial-card">
+          <div class="sosial-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></svg>
+          </div>
+          <div class="sosial-body">
+            <h3>Email</h3>
+            <div>Kritik dan Saran</div>
+            <a class="pill pill-sand pill-fx fx-email" href="mailto:detjapjava@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></svg>
+            <span class="pilih-label">Kirim Email</span>
+            </a>
+          </div>
+        </article>
+        <article class="sosial-card">
+          <div class="sosial-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="social-body">
+            <h3>Lokasi Kami</h3>
+            <div>RT.01/RW.01, Bandut, Pelemwatu, Kec. Menganti, Kab. Gresik, Jawa Timur 61174</div>
+            <div class="pill-stack">
+            <a class="pill pill-sand pill-fx fx-maps" href="https://maps.app.goo.gl/fvk3U3Z322UpeDje7" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="pill-label">Buka di Google Maps</span>
+            </a>
+            </article>
+            </div>
         </article>
       </div>
     </section>
-
-    <section class="section team-section">
+    <section class="cp" id="cp" aria-label="Cara pembelian">
+  <div class="cp-left">
+    <h2 class="cp-h">Cara pembelian</h2>
+    <ol class="cp-steps">
+      <li><button class="cp-s on" type="button"><span class="cp-n">01</span><span><b>Pilih menu</b><small>Pilih produk yang ingin dipesan.</small></span></button></li>
+      <li><button class="cp-s" type="button"><span class="cp-n">02</span><span><b>Konfirmasi</b><small>Tentukan jumlah, dan detail pesanan.</small></span></button></li>
+      <li><button class="cp-s" type="button"><span class="cp-n">03</span><span><b>Proses</b><small>Memproses pesanan.</small></span></button></li>
+      <li><button class="cp-s" type="button"><span class="cp-n">04</span><span><b>Selesai</b><small>Pesanan di antar ke alamat tujuan.</small></span></button></li>
+    </ol>
+    <i class="cp-rule"></i>
+  </div>
+ 
+  <div class="cp-card">
+    <div class="cp-bar"><div class="cp-fill"></div></div>
+    <div class="cp-panel in"></div>
+    <div class="cp-foot">
+      <button class="cp-btn ghost" type="button" data-a="back" hidden>← Kembali</button>
+      <div class="cp-sum"></div>
+      <button class="cp-btn" type="button" data-a="next">Lanjut</button>
+    </div>
+  </div>
+</section>
+    <section id="Team" class="section team-section">
       <div class="team-heading">
         <div>
           <p class="eyebrow">OUR TEAM</p>
@@ -1568,6 +2121,213 @@
     } else {
       revealElements.forEach((element) => element.classList.add("is-visible"));
     }
+  </script>
+  <script>
+    (function () {
+  var root = document.getElementById('xmap');
+  var steps = [].slice.call(root.querySelectorAll('.xmap-step'));
+  var scenes = [].slice.call(root.querySelectorAll('.xs'));
+  var DURASI = 5000, i = 0, timer;
+  var kurangiGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ 
+  function pilih(n) {
+    i = n;
+    steps.forEach(function (s, k) { s.classList.toggle('on', k === n); s.setAttribute('aria-pressed', k === n); });
+    scenes.forEach(function (s, k) { s.classList.toggle('on', k === n); });
+  }
+  function mulai() {
+    clearInterval(timer);
+    if (!kurangiGerak) timer = setInterval(function () { pilih((i + 1) % steps.length); }, DURASI);
+  }
+  steps.forEach(function (s, k) {
+    s.addEventListener('click', function () { pilih(k); mulai(); });
+  });
+  new IntersectionObserver(function (e) {
+    if (e[0].isIntersecting) { pilih(i); mulai(); } else { clearInterval(timer); }
+  }, { threshold: 0.35 }).observe(root);
+  pilih(0);
+})();
+  </script>
+  <script>
+    (function () {
+  /* ---------- PENGATURAN (ubah sesuai usahamu) ---------- */
+  var WA = '6285956063141';   /* nomor WhatsApp tujuan, awali 62 tanpa 0 */
+  var ONGKIR = 5000;          /* biaya antar (Rp) */
+  /* n=nama, d=deskripsi, p=harga, e=emoji, img=foto (opsional), r=1 jika Recommended */
+  var MENU = [
+    { k: 'Kopi', i: [
+      { id: 'k1', n: 'Kopi Jagad Gayo', d: 'Kopi hitam seduh tradisional, aroma pekat.', p: 6000, img:"images/kopi.jpeg", r: 1 },
+      { id: 'k2', n: 'Vietnam Drip', d: 'Kopi susu yang diseduh dengan teknik manual brew khas kopi vietnam yang mempunyai cita rasa yang unik.', p: 15000, img:"images/drippp.jpg", },
+      { id: 'k3', n: 'Kopi Kasar Susu', d: 'Kopi hitam yang diseduh tanpa membuang ampas biji kopi hasil seduhan. Kopi ini mempunyai rasa yang strong.', p: 15000, img: 'images/kasarr.jpg' },
+      { id: 'k4', n: 'Affogato', d: 'Cita rasa yang kaya dari espresso dengan tambahan ice cream.', p: 20000, img: 'images/affogatoo.jpg' }
+    ] },
+    { k: 'Non-Kopi', i: [
+      { id: 'n1', n: 'Beras Kencur Latte', d: 'Minuman yang terbuat dari rempah nusantara dan diblend dengan kelembutan susu, sehingga menciptakan rasa yang aromatik, dan manis.', p: 15000, img: 'images/latte.jpg',  r: 1 },
+      { id: 'n2', n: 'Kunyit Asem', d: 'Minuman yang cocok dikonsumsi siang hari, karena terbuat dari kunyit dan asam, sehingga dapat meredakan capek.', p: 10000, img: 'images/kunyit.jpg', r: 1 },
+      { id: 'n3', n: 'Lychee Milkshake', d: 'Lychee yang diblend dengan susu dan ice cream vanilla, Citarasa yang creamy dan fruity menyegarkan.', p: 28000, img: 'images/lychee.jpg' },
+      { id: 'n4', n: 'Choco Oreo Milkshake', d: 'Perpaduan Oreo-Chocolate yang diblend dengan susu dan ice cream vanilla, citarasa yang manis dan unik dari oreo.', p: 28000, img: 'images/choco.jpg'}]},
+    { k: 'Makanan', i: [
+      { id: 'm1', n: 'Mie Duk-Duk Java', d: 'Mie telur dimasak dengan saus khas DTJ dan aneka sayuran, bisa disajikan goreng maupun kuah.', p: 28000, img: 'images/mie.jpg', r: 1 },
+      { id: 'm2', n: 'Chicken Schntizel', d: 'Paha ayam fillet digoreng dengan tepung, disajikan dengan kentang goreng dan tumisan sayuran.', p: 48000, img: 'images/schnitzel.jpg', r: 1 },
+      { id: 'm3', n: 'Chicken Cordon Bleu', d: 'Dada ayam gulung berisikan keju dan Tepung yang digoreng, disajikan dengan kentang goreng di atas hot plate.', p: 40000, img: 'images/cordon.jpg' },
+      { id: 'm4', n: 'Tonkatsu Chicken Curry', d: 'Paha ayam filet digoreng dengan tepung roti dan disiram saus kari ala De Tjap Java.', p: 35000, img: 'images/tonkatsu.jpg'}]},
+    { k: 'Camilan', i: [
+      { id: 'c1', n: 'Bitterballen', d: 'Camilan yang terbuat dari ragout daging dan rempah-reempah yang digoreng, dan disajikan dengan saus mustrad khas belanda.', p: 18000, img: 'images/bitter.jpeg' },
+      { id: 'c2', n: 'TemBak', d: 'Tempe dan Bakwan yang penggorengan dan penyajiannya ala De Tjap Java.', p: 10000, img: 'images/tembak.jpg', r: 1 },
+      { id: 'c3', n: 'TanSuKe', d: 'Ketan yang dicampur dengan perpaduan susu dan keju sehingga menciptakan rasa yang creamy, manis, dan asin.', p: 10000, img: 'images/ketan.jpg' },
+      { id: 'c4', n: 'Giant Food', d: 'camilan yang terdiri dari sosis, telur puyuh, pentol, tofu, scalop, dan dumpling ayam, yang dibakar dengan bumbu khas detjapjava.', p:15000, img: 'images/food.jpg'}]},
+  ];
+ 
+  /* ---------- LOGIKA ---------- */
+  var root = document.getElementById('cp');
+  var panel = root.querySelector('.cp-panel'), sum = root.querySelector('.cp-sum');
+  var next = root.querySelector('[data-a=next]'), back = root.querySelector('[data-a=back]');
+  var steps = [].slice.call(root.querySelectorAll('.cp-s')), fill = root.querySelector('.cp-fill');
+  var all = {}; MENU.forEach(function (c) { c.i.forEach(function (m) { all[m.id] = m; }); });
+  var S = { step: 0, max: 0, cat: 0, cart: {}, f: { nama: '', hp: '', alamat: '', cat: '' }, err: '', id: '', t: [] };
+ 
+  function rp(x) { return 'Rp ' + x.toLocaleString('id-ID'); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function ids() { return Object.keys(S.cart).filter(function (k) { return S.cart[k] > 0; }); }
+  function cnt() { return ids().reduce(function (a, k) { return a + S.cart[k]; }, 0); }
+  function sub() { return ids().reduce(function (a, k) { return a + S.cart[k] * all[k].p; }, 0); }
+  function stepper(id, sm) {
+    return '<div class="cp-q ' + (sm ? 'sm' : '') + '"><button data-a="dec" data-id="' + id + '" aria-label="Kurangi">−</button><span>' + S.cart[id] +
+      '</span><button data-a="inc" data-id="' + id + '" aria-label="Tambah">+</button></div>';
+  }
+  function err() { return S.err ? '<p class="cp-err" role="alert">' + esc(S.err) + '</p>' : ''; }
+ 
+  /* --- tampilan tiap langkah --- */
+  function v0() {
+    var chips = MENU.map(function (c, n) { return '<button class="cp-chip ' + (n === S.cat ? 'on' : '') + '" data-a="cat" data-n="' + n + '">' + esc(c.k) + '</button>'; }).join('');
+    var rows = MENU[S.cat].i.map(function (m) {
+      var foto = m.img ? '<img src="' + esc(m.img) + '" alt="' + esc(m.n) + '" loading="lazy">' : m.e;
+      return '<div class="cp-row"><div class="cp-th">' + foto + '</div><div><h4 class="cp-nm">' + esc(m.n) + (m.r ? '<span class="cp-rec">*Recommended</span>' : '') +
+        '</h4><p class="cp-ds">' + esc(m.d) + '</p></div><div class="cp-r"><span class="cp-pr">' + rp(m.p) + '</span>' +
+        (S.cart[m.id] ? stepper(m.id) : '<button class="cp-add" data-a="inc" data-id="' + m.id + '">+ Tambah</button>') + '</div></div>';
+    }).join('');
+    return '<h3 class="cp-t">Pilih menu favoritmu</h3><p class="cp-p">Ketuk “Tambah” pada menu yang kamu mau.</p>' + err() +
+      '<div class="cp-chips">' + chips + '</div><div class="cp-list">' + rows + '</div>';
+  }
+  function v1() {
+    var items = ids().map(function (k) {
+      return '<div class="cp-it"><span class="n">' + esc(all[k].n) + '</span>' + stepper(k, 1) + '<span class="s">' + rp(all[k].p * S.cart[k]) + '</span></div>';
+    }).join('') || '<p class="cp-p">Belum ada pesanan.</p>';
+    return '<h3 class="cp-t">Konfirmasi pesanan</h3><p class="cp-p">Cek pesananmu dan isi alamat pengiriman.</p>' + err() +
+      '<div class="cp-conf"><div class="cp-sec">Detail pesanan</div>' + items +
+      '<button class="cp-more" data-a="more">+ Tambah pesanan lagi</button>' +
+      '<div class="cp-tot"><div><span>Subtotal</span><span>' + rp(sub()) + '</span></div><div><span>Ongkos kirim</span><span>' + rp(ONGKIR) +
+      '</span></div><div class="g"><span>Total</span><span>' + rp(sub() + ONGKIR) + '</span></div></div>' +
+      '<div class="cp-sec">Alamat tujuan pengiriman</div><div class="cp-fm">' +
+      '<label>Nama penerima<input data-f="nama" value="' + esc(S.f.nama) + '" placeholder="Nama lengkap" autocomplete="name"></label>' +
+      '<label>No. WhatsApp<input data-f="hp" value="' + esc(S.f.hp) + '" placeholder="08xxxxxxxxxx" inputmode="tel" autocomplete="tel"></label>' +
+      '<label class="w">Alamat lengkap<textarea data-f="alamat" rows="2" placeholder="Jalan, nomor rumah, RT/RW, desa/kelurahan, patokan">' + esc(S.f.alamat) + '</textarea></label>' +
+      '<label class="w">Catatan (opsional)<input data-f="cat" value="' + esc(S.f.cat) + '" placeholder="Contoh: kurangi gula, tanpa pedas"></label></div>' +
+      '<p style="margin:12px 0 0"><button class="cp-btn ghost" data-a="wa" type="button">Kirim juga via WhatsApp</button></p></div>';
+  }
+  function v2() {
+    var st = ['Pesanan diterima', 'Barista menyiapkan menu', 'Dikemas dengan rapi', 'Siap diantar'];
+    return '<div class="cp-proc"><svg viewBox="0 0 120 130" aria-hidden="true"><defs><clipPath id="cpc"><path d="M20 42h70l-8 60a10 10 0 0 1-10 8H38a10 10 0 0 1-10-8z"/></clipPath></defs>' +
+      '<ellipse cx="55" cy="116" rx="46" ry="8" fill="#e6d6bf"/><g clip-path="url(#cpc)"><rect class="cp-liq" x="10" y="48" width="100" height="70" fill="#6b3f24"/></g>' +
+      '<path d="M20 42h70l-8 60a10 10 0 0 1-10 8H38a10 10 0 0 1-10-8z" fill="none" stroke="#2a1810" stroke-width="3.5" stroke-linejoin="round"/><path d="M89 52h8a10 10 0 0 1 0 22h-12" fill="none" stroke="#2a1810" stroke-width="3.5" stroke-linecap="round"/>' +
+      '<g fill="none" stroke="#9c6137" stroke-width="3" stroke-linecap="round"><path class="cp-sm" d="M42 32q-6-8 0-16"/><path class="cp-sm" style="animation-delay:.6s" d="M56 32q-6-8 0-16"/><path class="cp-sm" style="animation-delay:1.2s" d="M70 32q-6-8 0-16"/></g></svg>' +
+      '<h3 class="cp-t">Pesananmu sedang diproses</h3><p class="cp-p">Dapur kami menyiapkan pesananmu dengan sepenuh hati.</p>' +
+      '<ul class="cp-stages">' + st.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul><span class="cp-eta">⏱ Estimasi tiba ± 20 menit</span></div>';
+  }
+  function v3() {
+    var wh = function (x) { return '<g transform="translate(' + x + ' -12)"><circle class="cp-w" r="12" fill="#2a1810"/><circle r="5" fill="#d9bd94"/><path class="cp-w" d="M-12 0h24M0-12v24" stroke="#d9bd94" stroke-width="1.5"/></g>'; };
+    return '<div class="cp-del"><svg viewBox="0 0 560 210" aria-label="Kurir mengantar pesanan"><rect width="560" height="210" fill="#f7e9d2"/><circle cx="470" cy="42" r="22" fill="#ffd58a"/>' +
+      '<rect x="12" y="78" width="96" height="94" fill="#7b2d2d"/><path d="M6 78h108l-10-22H16z" fill="#9c6137"/><rect x="40" y="108" width="40" height="64" fill="#2a1810"/><text x="60" y="98" font-size="11" font-weight="700" text-anchor="middle" fill="#fae5c3" font-family="Arial">TJAP JAVA</text>' +
+      '<rect x="448" y="92" width="96" height="80" fill="#d8c3a0"/><path d="M440 94l56-40 56 40z" fill="#5a3a22"/><rect x="480" y="116" width="32" height="56" fill="#ffd58a"/>' +
+      '<g transform="translate(480 116)"><rect class="cp-dr" width="32" height="56" fill="#9c6137"/></g>' +
+      '<g class="cp-bd"><circle cx="496" cy="72" r="16" fill="#3f8a5b"/><path d="M488 72l6 6 12-12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>' +
+      '<rect y="172" width="560" height="38" fill="#c9a77c"/><line class="cp-road" x1="0" y1="192" x2="560" y2="192" stroke="#fff" stroke-width="3" stroke-dasharray="12 12"/>' +
+      '<g transform="translate(70 172)"><g class="cp-sc">' + wh(0) + wh(52) +
+      '<rect x="6" y="-34" width="40" height="14" rx="7" fill="#7b2d2d"/><rect x="40" y="-54" width="5" height="34" rx="2" fill="#5a3a22"/><path d="M36-54h14" stroke="#2a1810" stroke-width="4" stroke-linecap="round"/>' +
+      '<rect x="12" y="-64" width="17" height="30" rx="8" fill="#2f6f5e"/><path d="M24-50l16-4" stroke="#2f6f5e" stroke-width="6" stroke-linecap="round"/><circle cx="21" cy="-74" r="9" fill="#e8b88a"/><path d="M12-74a9 9 0 0 1 18 0z" fill="#2f6f5e"/>' +
+      '<rect x="-16" y="-66" width="28" height="28" rx="4" fill="#9c6137"/><path d="M-16-56h28" stroke="#fae5c3" stroke-width="2"/></g></g></svg>' +
+      '<h3 class="cp-stat" id="cp-stat">Kurir sedang mengantar pesananmu…</h3><p class="cp-stat-s" id="cp-stat2">Mohon ditunggu, kurir menuju alamat tujuan.</p>' +
+      '<div class="cp-ord"><b>No. Pesanan</b>' + S.id + '<br><b>Penerima</b>' + esc(S.f.nama) + '<br><b>Alamat</b>' + esc(S.f.alamat) + '<br><b>Total</b>' + rp(sub() + ONGKIR) + '</div></div>';
+  }
+ 
+  /* --- pembaruan layar --- */
+  function foot() {
+    var s = S.step, n = cnt();
+    back.hidden = s !== 1;
+    sum.innerHTML = s < 2 ? '<b>' + rp(sub() + (s === 1 && n ? ONGKIR : 0)) + '</b>' + n + ' item dipesan' : s === 2 ? '<b>Mohon tunggu…</b>Pesanan sedang disiapkan' : '<b>' + rp(sub() + ONGKIR) + '</b>Total pesanan';
+    next.hidden = s === 2;
+    next.textContent = ['Lanjut ke Konfirmasi →', 'Pesan Sekarang ✓', '', 'Pesan Lagi'][s];
+  }
+  function render() {
+    var l = panel.querySelector('.cp-list, .cp-conf'), top = l ? l.scrollTop : 0;
+    panel.innerHTML = [v0, v1, v2, v3][S.step]();
+    l = panel.querySelector('.cp-list, .cp-conf'); if (l) l.scrollTop = top;
+    foot();
+  }
+  function clr() { S.t.forEach(clearTimeout); S.t = []; }
+  function later(f, ms) { S.t.push(setTimeout(f, ms)); }
+  function go(n) {
+    clr(); S.step = n; S.max = Math.max(S.max, n); S.err = '';
+    render();
+    panel.classList.remove('in'); void panel.offsetWidth; panel.classList.add('in');
+    steps.forEach(function (b, k) { b.classList.toggle('on', k === n); b.classList.toggle('done', k < n); });
+    fill.style.width = (n + 1) * 25 + '%';
+    if (n === 2) proses();
+    if (n === 3) antar();
+  }
+  function proses() {
+    var li = [].slice.call(panel.querySelectorAll('.cp-stages li'));
+    li.forEach(function (el, k) {
+      later(function () { if (k) li[k - 1].className = 'done'; el.className = 'on'; }, k * 1600);
+    });
+    later(function () { li[3].className = 'done'; }, 4 * 1600);
+    later(function () { S.id = 'DTJ-' + Math.floor(1000 + Math.random() * 9000); go(3); }, 4 * 1600 + 900);
+  }
+  function antar() {
+    var box = panel.querySelector('.cp-del'), a = document.getElementById('cp-stat'), b = document.getElementById('cp-stat2');
+    later(function () { a.textContent = 'Sebentar lagi sampai…'; b.textContent = 'Kurir sudah dekat dengan alamat tujuan.'; }, 2600);
+    later(function () { box.classList.add('arrived'); a.textContent = 'Pesanan tiba! 🎉'; b.textContent = 'Terima kasih, selamat menikmati.'; }, 5200);
+  }
+  function pesanWA() {
+    var t = 'Halo De Tjap Java, saya ingin memesan:%0A' + ids().map(function (k) { return '- ' + all[k].n + ' x' + S.cart[k]; }).join('%0A') +
+      '%0A%0ATotal: ' + rp(sub() + ONGKIR) + '%0ANama: ' + S.f.nama + '%0AAlamat: ' + S.f.alamat + (S.f.cat ? '%0ACatatan: ' + S.f.cat : '');
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(decodeURIComponent(t)), '_blank', 'noopener');
+  }
+  function valid() {
+    if (!cnt()) return 'Pesananmu masih kosong. Pilih menu dulu.';
+    if (!S.f.nama.trim()) return 'Nama penerima belum diisi.';
+    if (S.f.hp.replace(/\D/g, '').length < 9) return 'Nomor WhatsApp belum benar.';
+    if (S.f.alamat.trim().length < 8) return 'Alamat pengiriman belum lengkap.';
+    return '';
+  }
+  function maju() {
+    if (S.step === 0) { if (!cnt()) { S.err = 'Pilih minimal satu menu dulu.'; render(); } else go(1); }
+    else if (S.step === 1) { S.err = valid(); if (S.err) { render(); panel.querySelector('.cp-conf').scrollTop = 0; } else go(2); }
+    else if (S.step === 3) { S.cart = {}; S.max = 0; go(0); }
+  }
+ 
+  /* --- event --- */
+  panel.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-a]'); if (!el) return;
+    var a = el.dataset.a, id = el.dataset.id;
+    if (a === 'cat') { S.cat = +el.dataset.n; render(); }
+    else if (a === 'inc') { S.cart[id] = (S.cart[id] || 0) + 1; S.err = ''; render(); }
+    else if (a === 'dec') { S.cart[id]--; if (S.cart[id] < 1) delete S.cart[id]; render(); if (S.step === 1 && !cnt()) { go(0); } }
+    else if (a === 'more') go(0);
+    else if (a === 'wa') { S.err = valid(); if (S.err) { render(); } else pesanWA(); }
+  });
+  panel.addEventListener('input', function (e) { if (e.target.dataset.f) S.f[e.target.dataset.f] = e.target.value; });
+  next.addEventListener('click', maju);
+  back.addEventListener('click', function () { go(0); });
+  steps.forEach(function (b, k) {
+    b.addEventListener('click', function () {
+      if (S.step >= 2 || k >= 2) return;           /* langkah 3-4 berjalan otomatis */
+      if (k === 1 && !cnt()) { S.err = 'Pilih minimal satu menu dulu.'; render(); return; }
+      go(k);
+    });
+  });
+  go(0);
+})();
   </script>
 </body>
 </html>
